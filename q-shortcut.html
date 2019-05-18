@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register Q shortcuts</title>
+    <style>
+        #q-image-container {
+            text-align: center;
+        }
+
+        .q-image-infinite {
+            animation-name: move-backwords;
+            animation-duration: 500ms;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .q-image-slowly {
+            animation-name: move;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            /* animation-iteration-count: infinite; */
+            /* animation-direction: alternate; */
+        }
+
+        #q-shortcut-indication {
+            color: #3aec9f;
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+            font-family: Helvetica;
+            text-shadow: 1px 1px 1px rgba(50, 50, 50, 1);
+        }
+
+        @keyframes move {
+            from {
+                transform: rotate(-45deg);
+            }
+
+            to {
+                transform: rotate(+45deg)
+            }
+        }
+
+        @keyframes move-backwords {
+            from {
+                transform: rotate(45deg);
+            }
+
+            to {
+                transform: rotate(-45deg)
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="q-image-container">
+    <img src="assets/images/q-icon-no-bracket.png"
+         id="q-image"
+         class="q-image-slowly">
+</div>
+
+<div id="q-shortcut-indication">
+    Press any key or release <br> Q button!
+</div>
+<script>
+    const timeout = setTimeout(() => {
+        const indication = document.getElementById('q-shortcut-indication');
+        const image = document.getElementById('q-image');
+        indication.style.display = 'block';
+        image.classList.add('q-image-infinite');
+        image.classList.remove('q-image-slowly');
+        clearTimeout(timeout);
+    }, 2000);
+
+</script>
+</body>
+
+</html>

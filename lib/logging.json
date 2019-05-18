@@ -1,0 +1,8 @@
+{
+  "name": "AppletLogger",
+  "handleExceptions": true,
+  "maxsize": 10000000,
+  "maxFiles": 1,
+  "json": true,
+  "tailable": true
+}

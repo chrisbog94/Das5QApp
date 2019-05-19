@@ -20609,7 +20609,14 @@
 
             setPossibleActiveEffects() {
                 console.log("setPossibleActiveEffects");
-                this.possibleActiveEffects.push(tp.SET_COLOR), this.possibleActiveEffects.push(tp.BLINK), this.possibleActiveEffects.push(tp.BREATHE), this.possibleActiveEffects.push(tp.RIPPLE), this.possibleActiveEffects.push(tp.LASER), this.possibleActiveEffects.push(tp.COLOR_CYCLE), this.possibleActiveEffects.push(tp.INWARD_RIPPLE), this.possibleActiveEffects.push(tp.NONE)
+                this.possibleActiveEffects.push(tp.SET_COLOR),
+                    this.possibleActiveEffects.push(tp.BLINK),
+                    this.possibleActiveEffects.push(tp.BREATHE),
+                    this.possibleActiveEffects.push(tp.RIPPLE),
+                    this.possibleActiveEffects.push(tp.LASER),
+                    this.possibleActiveEffects.push(tp.COLOR_CYCLE),
+                    this.possibleActiveEffects.push(tp.INWARD_RIPPLE),
+                    this.possibleActiveEffects.push(tp.NONE)
             }
 
             isFirmwareUpgradeThroughService() {
@@ -20617,6 +20624,7 @@
             }
 
             getActiveEffectCommands(n, t) {
+                console.log("getActiveEffectCommands: n: " + n + " t: " + t);
                 if (!this.canPerformActiveEffect(t)) return [];
                 const e = [];
                 switch (t.name) {
@@ -20765,6 +20773,7 @@
             }
 
             get3LEDsCommands(n) {
+                console.log(n);
                 const t = [];
                 return t.push(this.getEntireLEDCommand(this.rgbLEDS.red, n)), t.push(this.getEntireLEDCommand(this.rgbLEDS.green, n)), t.push(this.getEntireLEDCommand(this.rgbLEDS.blue, n)), t
             }
@@ -20832,7 +20841,7 @@
             static getSetTriggerRippleCommand(n, t) {
                 console.log("getSetTriggerRippleCommand");
                 const e = Buffer.alloc(2);
-                return e.writeUInt8(137, 0), e.writeUInt8(n, 1), [Buffer.concat([e, vf.getColorBuffer(t)])]
+                return e.writeUInt8(137, 1), e.writeUInt8(n, 1), [Buffer.concat([e, vf.getColorBuffer(t)])]
             }
 
             static getSetTriggerLaserCommand(n, t) {

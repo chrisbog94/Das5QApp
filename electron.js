@@ -137,25 +137,25 @@ if (process['on']('uncaughtException', _0x1bcea6 => {
     }
 
     function createWindowContextMenu(_0x47d503) {
-        const _0x5a9941 = new Menu();
-        _0x5a9941['append'](new MenuItem({
+        const ContextMenu = new Menu();
+        ContextMenu['append'](new MenuItem({
             'role': 'paste',
             'accelerator': 'darwin' === process['platform'] ? 'Cmd+V' : 'Ctrl+V'
-        })), _0x5a9941['append'](new MenuItem({
+        })), ContextMenu['append'](new MenuItem({
             'role': 'copy',
             'accelerator': 'darwin' === process['platform'] ? 'Cmd+C' : 'Ctrl+C'
-        })), _0x5a9941['append'](new MenuItem({
+        })), ContextMenu['append'](new MenuItem({
             'role': 'toggledevtools',
             'accelerator': 'darwin' === process['platform'] ? 'Cmd+k' : 'Ctrl+k'
-        })), _0x5a9941['append'](new MenuItem({
+        })), ContextMenu['append'](new MenuItem({
             'role': 'cut',
             'accelerator': 'darwin' === process['platform'] ? 'Cmd+X' : 'Ctrl+X'
-        })), _0x5a9941['append'](new MenuItem({
+        })), ContextMenu['append'](new MenuItem({
             'role': 'selectall',
             'accelerator': 'darwin' === process['platform'] ? 'Cmd+A' : 'Ctrl+A'
         })), _0x47d503['webContents']['on']('context-menu', (_0x39b06b, _0x11957f) => {
             const _0xd1196d = {'x': _0x11957f['x'], 'y': _0x11957f['y']};
-            'darwin' === process['platform'] && ctrlKeyPressed || _0x5a9941['popup'](_0x47d503, _0xd1196d);
+            'darwin' === process['platform'] && ctrlKeyPressed || ContextMenu['popup'](_0x47d503, _0xd1196d);
         });
     }
 
